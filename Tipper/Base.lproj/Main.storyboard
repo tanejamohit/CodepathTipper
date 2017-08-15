@@ -69,7 +69,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="Zoa-m3-xKP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="Zoa-m3-xKP">
                                 <rect key="frame" x="199" y="87" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -86,7 +86,18 @@
                             <outletCollection property="gestureRecognizers" destination="KXf-uh-IjT" appends="YES" id="BCg-YC-J8j"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="Rsd-fX-gtO"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="Rsd-fX-gtO">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="ZMF-fw-dJj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pOD-dq-Zea">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="0cm-c7-2dE" kind="push" id="c7b-Qr-ewE"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="Zoa-m3-xKP" id="DSX-Qd-bdk"/>
                         <outlet property="tipController" destination="CIh-Q5-ZrT" id="QiJ-7W-UnN"/>
@@ -102,6 +113,38 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="537.5" y="154.5"/>
+        </scene>
+        <!--SettingsViewController-->
+        <scene sceneID="PdM-vt-gzn">
+            <objects>
+                <viewController title="SettingsViewController" id="0cm-c7-2dE" customClass="SettingsViewController" customModule="Tipper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CUb-Qr-DS7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="d4L-AY-luE">
+                                <rect key="frame" x="17" y="95" width="341" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                    <segment title="25%"/>
+                                </segments>
+                                <connections>
+                                    <action selector="SaveTipDefaultPercentage:" destination="0cm-c7-2dE" eventType="valueChanged" id="tml-dI-WUr"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Default Tip Percentage" id="dwX-iO-1u6"/>
+                    <connections>
+                        <outlet property="tipController" destination="d4L-AY-luE" id="uXB-Le-DDn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2V-Pw-lWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1118" y="155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3dS-kW-3VS">
