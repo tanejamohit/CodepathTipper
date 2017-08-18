@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard
         let lastSavetime = (defaults.object(forKey: "tipper.billFieldLastSaveTime") ??         Date.init(timeIntervalSince1970: 0)) as! Date
         let currentTime = Date.init()
-        if (currentTime.timeIntervalSince(lastSavetime)/60 < 5) {
+        if (currentTime.timeIntervalSince(lastSavetime)/60 < 10) {
             if let viewControllers = self.window!.rootViewController?.childViewControllers {
                 for viewController in viewControllers {
                     if viewController.isKind(of: ViewController.self) {
